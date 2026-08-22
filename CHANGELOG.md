@@ -1,5 +1,15 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Roster-Grundlage – 10.8.0
+
+- Neuer Bereich `ROSTER & BRAND` für Brand, Woche und bestätigte Superstar-Daten.
+- Gezielter Screenshot ausschließlich vom validierten WWE2K26-Spielprozess.
+- OCR nur nach Klick auf `WWE-SEITE ERFASSEN`; keine Schleife und keine Hintergrundüberwachung.
+- Windows-OCR läuft in `MyGM.OcrWorker.exe` als separater Prozess ohne Konsolenfenster.
+- Harter 15-Sekunden-Timeout; bei Timeout oder Abbruch wird der OCR-Prozess beendet.
+- Erkannter Text wird niemals ungeprüft übernommen, sondern zunächst in einem editierbaren Vorschaubereich angezeigt.
+- Bestätigte Rosterzeilen werden lokal in `data/roster.json` gespeichert und bleiben bei Updates erhalten.
+
 ## GitHub-Updater – 10.7.0
 
 - Neuer `UPDATES`-Bereich direkt im Launcher.
@@ -48,3 +58,4 @@
 
 - OCR-Auswertung und automatische Show-Erkennung werden erst nach bestandener Diagnosephase aktiviert.
 - Roster-, Rivalitäts-, Versprechen- und Show-Planungsmodule sind als UI-Ziele vorgesehen, aber nicht mit instabiler Live-Erkennung verbunden.
+

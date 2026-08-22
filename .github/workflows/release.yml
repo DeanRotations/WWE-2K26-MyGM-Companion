@@ -27,7 +27,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v10.7.0" }
+          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v10.8.0" }
           $setup = (Get-ChildItem "release/WWE-2K26-MyGM-Companion-*-Setup.exe" | Select-Object -First 1).FullName
           $change = (Get-ChildItem "release/CHANGELOG-*.md" | Select-Object -First 1).FullName
           gh release create "$releaseTag" `

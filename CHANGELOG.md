@@ -1,5 +1,15 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Launcher- und Update-Hotfix – 11.0.1
+
+- Launcher beim Start visuell neu gestaltet: Arena-inspirierter rotschwarzer Hintergrund, Lichtakzente, klarere Panels und interaktive Schaltflächen.
+- Eigenständiges, originales `MYGM`-Emblem im Launcher; keine offiziellen WWE- oder 2K-Logos werden kopiert.
+- Echtes Mehrgrößen-Windows-Icon für Companion, Setup, Updater, Uninstaller und Desktop-Verknüpfung.
+- Windows-Deinstallationseintrag verwendet ebenfalls das neue Programmsymbol.
+- Der Menüpunkt `UPDATES` zeigt jetzt sichtbar `PRÜFE`, `AKTUELL`, `OFFLINE` oder einen roten Hinweis `UPDATE X VERFÜGBAR`.
+- Beim Start wird einmalig nur die kleine `latest release`-Metadatenantwort von GitHub abgefragt; es erfolgt kein Download und keine dauerhafte Hintergrundprüfung.
+- Ein verfügbares Update wird durch roten Button, weißen Rand und Versionsnummer deutlich hervorgehoben.
+
 ## Automatischer Showplaner – 11.0.0
 
 - Neuer Button `AUTO-PLAN ERSTELLEN` erzeugt aus bestätigtem Roster und offenen Zielen eine vollständige Card.

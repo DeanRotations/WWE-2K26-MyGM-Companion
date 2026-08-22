@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+stage/
+update-stage/
+setup-publish/
+outputs/
+src/MyGM.Setup/payload.zip
+*.user
+*.suo

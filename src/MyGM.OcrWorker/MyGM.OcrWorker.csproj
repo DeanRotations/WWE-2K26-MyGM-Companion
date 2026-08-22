@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><AssemblyName>MyGM.OcrWorker</AssemblyName></PropertyGroup></Project>

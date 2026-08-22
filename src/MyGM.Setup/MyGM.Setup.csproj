@@ -1,1 +1,2 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>Setup</AssemblyName><ApplicationManifest>app.manifest</ApplicationManifest></PropertyGroup><ItemGroup><EmbeddedResource Include="payload.zip" LogicalName="payload.zip"/></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>Setup</AssemblyName><ApplicationManifest>app.manifest</ApplicationManifest><ApplicationIcon>..\MyGM.Companion\assets\mygm.ico</ApplicationIcon></PropertyGroup><ItemGroup><EmbeddedResource Include="payload.zip" LogicalName="payload.zip"/></ItemGroup></Project>
+

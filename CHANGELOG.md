@@ -1,5 +1,11 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Updater-Hotfix – 11.4.1
+- Overlay kann beim Programmende ausdrücklich geschlossen werden und hält MyGMCompanion.exe nicht mehr im Hintergrund gesperrt.
+- Updater wartet bis zu zwölf Sekunden auf ein sauberes Programmende und anschließend zuverlässig auf einen erzwungenen Prozessabbruch.
+- Jede zu ersetzende Datei wird bei kurzzeitiger Windows-Sperre bis zu zehn Sekunden erneut versucht.
+- Fehlermeldungen nennen künftig die konkret gesperrte Datei.
+
 ## Verletzungsfix und moderne Kartenansichten – 11.4.0
 - Kevin Owens und Cody Rhodes werden im kalibrierten ECW-Spielstand korrekt als verletzt behandelt; bestehende ECW-Profile werden beim Start automatisch korrigiert.
 - Alle fünf sichtbaren Verletzungen sperren Matches und Promos: Kevin Owens, Cody Rhodes, Roman Reigns, Finn Bálor und Omos.

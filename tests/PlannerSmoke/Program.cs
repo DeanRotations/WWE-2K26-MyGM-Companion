@@ -13,5 +13,8 @@ if(plan.Promos.Count!=3)throw new Exception("Drei Promos erwartet.");
 if(!plan.Matches.Any(x=>x.MatchType=="Tables"))throw new Exception("Tables-Ziel nicht eingeplant.");
 if(plan.Matches.SelectMany(x=>new[]{x.A.Name,x.B.Name}).Distinct().Count()!=8)throw new Exception("Superstar doppelt gebucht.");
 if(plan.Matches.Any(x=>x.A.Gender!=x.B.Gender))throw new Exception("Ungültige Geschlechterpaarung.");
+var learned=LearningEngine.Learn([new ShowOutcome(1,[new MatchOutcome("Cody Rhodes","Randy Orton","Tables",5.0)],[],4.5,"",DateTimeOffset.Now)]);
+if(learned.Profile.MatchBonus("Cody Rhodes","Randy Orton","Tables")<=0)throw new Exception("Positives Ergebnis wurde nicht gelernt.");
+var learnedPlan=PlannerEngine.Generate(roster,objectives,50_000,learned.Profile);
+if(!learnedPlan.Matches.Any(x=>x.A.Name.Contains("Cody")&&x.B.Name.Contains("Randy")||x.A.Name.Contains("Randy")&&x.B.Name.Contains("Cody")))throw new Exception("Starke gelernte Paarung fehlt.");
 Console.WriteLine(plan.Render());
-

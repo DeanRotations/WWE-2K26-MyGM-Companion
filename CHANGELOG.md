@@ -1,5 +1,17 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Ergebnisanalyse und lokales Lernen – 11.1.0
+
+- Neuer Bereich `ANALYSE & LERNEN` für Matchsterne, Matchtypen, Promowertungen, Endwertung und Notizen.
+- Ergebnisbildschirm kann gezielt per Screenshot und isolierter On-Demand-OCR als Referenz erfasst werden.
+- Bestätigtes Format für Matches: `A vs B | Matchtyp | Sterne`; Promos: `Name | Promotyp | Wert 0–5`.
+- Pro Woche gespeicherte Showhistorie wird updatefest in `data/show-history.json` geführt.
+- Lokales Lernprofil aggregiert Paarungen, Matchtypen, Superstar-Leistung und Promo-Kombinationen.
+- Lernbericht zeigt wiederholbare Stärken und konkrete schwache Paarungen beziehungsweise Matchtypen.
+- Auto-Planer berücksichtigt gelernte Werte als begrenzten Bonus oder Malus; Grundregeln zu Geschlecht, Ausdauer und Budget bleiben immer vorrangig.
+- Dashboard zeigt Anzahl gelernter Shows und durchschnittliche Endwertung.
+- Lernmodell verändert ausschließlich lokale Bewertungsdaten und niemals selbstständig den Programmcode.
+
 ## Launcher- und Update-Hotfix – 11.0.1
 
 - Launcher beim Start visuell neu gestaltet: Arena-inspirierter rotschwarzer Hintergrund, Lichtakzente, klarere Panels und interaktive Schaltflächen.
@@ -96,4 +108,3 @@
 
 - OCR-Auswertung und automatische Show-Erkennung werden erst nach bestandener Diagnosephase aktiviert.
 - Roster-, Rivalitäts-, Versprechen- und Show-Planungsmodule sind als UI-Ziele vorgesehen, aber nicht mit instabiler Live-Erkennung verbunden.
-

@@ -1,0 +1,8 @@
+{
+  "overlayEnabled": false,
+  "diagnosticMode": true,
+  "automaticCapture": false,
+  "ocrEnabled": false,
+  "captureTimeoutSeconds": 8,
+  "ocrTimeoutSeconds": 12
+}

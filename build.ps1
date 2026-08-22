@@ -21,7 +21,7 @@ foreach ($dir in @('assets','config','data','cache','logs')) {
   $sourceDir = Join-Path $src "MyGM.Companion\$dir"
   $targetDir = Join-Path $stage $dir
   New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
-  Copy-Item (Join-Path $sourceDir '*') $targetDir -Recurse -Force
+  if (Test-Path $sourceDir) { Copy-Item (Join-Path $sourceDir '*') $targetDir -Recurse -Force }
 }
 Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $stage 'CHANGELOG.md') -Force
 Copy-Item (Join-Path $stage '*') $updateStage -Recurse -Force
@@ -38,3 +38,4 @@ if ($LASTEXITCODE -ne 0) { throw 'Setup build failed.' }
 Copy-Item (Join-Path $PSScriptRoot 'setup-publish\Setup.exe') (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.7.0-Setup.exe') -Force
 Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $out 'CHANGELOG-V10.7.0.md') -Force
 Get-FileHash (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.7.0-Setup.exe') -Algorithm SHA256 | Format-List
+

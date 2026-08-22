@@ -26,3 +26,10 @@ if(ecwPlan.Matches.SelectMany(x=>new[]{x.A.Name,x.B.Name}).Any(x=>x is "Roman Re
 if(ecwPlan.Promos.Any(x=>x.Star.Name is "Kevin Owens" or "Cody Rhodes" or "Roman Reigns" or "Finn Bálor" or "Omos"))throw new Exception("Verletzter Superstar wurde für eine Promo gebucht.");
 var fiveMatchPlan=PlannerEngine.Generate(roster,objectives,50_000,null,5,1);
 if(fiveMatchPlan.Matches.Count!=5||fiveMatchPlan.Promos.Count!=1)throw new Exception("Dynamische Showplätze wurden nicht beachtet.");
+var metadata=CareerMetadata.Empty() with{InjuryWeeks=new(){{"Kevin Owens",2}},ContractWeeks=new(){{"Seth Rollins",2}},NextPleWeek=16,Budget=900_000,Fans=1_600_000,Business=[new(12,850_000,1_550_000,80_000,40_000),new(13,900_000,1_600_000,100_000,35_000)],FreeAgents=[new("Test Giant","M","Heel","Giant",70,80,40_000)]};
+var repeated=new[]{new ShowOutcome(12,[new("Cody Rhodes","Randy Orton","Normal",4.0)],[],4,"",DateTimeOffset.Now),new ShowOutcome(13,[new("Cody Rhodes","Randy Orton","Normal",4.5)],[],4.2,"",DateTimeOffset.Now)};
+var career=CareerIntelligenceEngine.Build(ecw,metadata,repeated,["Versprechen | Cody Rhodes | Gewinne dein nächstes Match | 12 | Hoch | Offen"],"Erwartung: 3,5–4,0 ★",Path.GetTempPath());
+if(!career.Notices.Any(x=>x.Group=="VERLETZUNG"&&x.Title=="Kevin Owens"))throw new Exception("Verletzungskalender fehlt.");
+if(!career.Notices.Any(x=>x.Group=="WIEDERHOLUNG"))throw new Exception("Wiederholungswarnung fehlt.");
+if(!career.Notices.Any(x=>x.Group=="PROGNOSE-CHECK"))throw new Exception("Sternevergleich fehlt.");
+if(!career.Notices.Any(x=>x.Group=="BIS ZUM PLE"&&x.Title=="Woche 16"))throw new Exception("PLE-Plan fehlt.");

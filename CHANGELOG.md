@@ -1,5 +1,19 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Karriere-Zentrale – 12.0.0
+- Neue spielstandgebundene Karriere-Zentrale mit modernen Warn-, Kalender- und Superstar-Karten.
+- Automatischer Verletzungs- und Erholungskalender sowie Drei-Wochen-Ausdauerprognose.
+- Rivalitätsstufen werden bewertet und eine optimale Abschlusswoche am nächsten erfassten PLE empfohlen.
+- Erfüllte, offene, überfällige und gescheiterte Versprechen werden nach Deadline eingeordnet.
+- Budget-, Fan-, Einnahmen- und Showkostentrends werden aus lokalen Wochen-Snapshots berechnet.
+- Mehrwöchige Prioritätenplanung bis zum nächsten PLE.
+- Vertragswarnungen drei Wochen vor Ablauf und Free-Agent-Empfehlungen für Klassenlücken.
+- Wiederholte Paarungen der letzten fünf Shows werden automatisch gewarnt.
+- Bestehende Managerzuordnungen fließen sichtbar in Empfehlungen ein.
+- Gespeicherte Sterneprognosen werden mit den tatsächlichen Ergebnissen verglichen.
+- Lokale Superstar-Karten zeigen Bild, Status, Popularität, Ausdauer, Formkurve, Manager und Matchhistorie.
+- Fehlende Bildschirmdaten werden ausdrücklich als nicht erfasst markiert und niemals erfunden.
+
 ## Updater-Hotfix – 11.4.1
 - Overlay kann beim Programmende ausdrücklich geschlossen werden und hält MyGMCompanion.exe nicht mehr im Hintergrund gesperrt.
 - Updater wartet bis zu zwölf Sekunden auf ein sauberes Programmende und anschließend zuverlässig auf einen erzwungenen Prozessabbruch.

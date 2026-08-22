@@ -1,1 +1,2 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>uninstall</AssemblyName><ApplicationManifest>app.manifest</ApplicationManifest></PropertyGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>uninstall</AssemblyName><ApplicationManifest>app.manifest</ApplicationManifest><ApplicationIcon>..\MyGM.Companion\assets\mygm.ico</ApplicationIcon></PropertyGroup></Project>
+

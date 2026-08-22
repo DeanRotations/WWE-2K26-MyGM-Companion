@@ -1,5 +1,15 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Spielstandprofile und geführte Auto-Card – 11.2.0
+- Roster, Showstruktur und spätere Lerndaten werden einem aktiven MyGM-Spielstand zugeordnet.
+- Der aktuelle ECW-Spielstand aus Saison 1, Show 13 kann als kalibrierter Startscan mit 15 Superstars übernommen werden.
+- Verletzte Roman Reigns, Finn Bálor und Omos werden im aktuellen Scan nicht gebucht; niedrige Ausdauer wird für Promos statt Matches bevorzugt.
+- Erkannte Showstruktur wird im Profil gespeichert: aktueller ECW-Spielstand mit vier Matches und drei Promos.
+- Planer unterstützt dynamisch zwei bis acht Matchplätze und null bis acht Promoplätze.
+- Die bisherige manuelle Planungsansicht heißt nun automatische Show-Empfehlung.
+- Overlay zeigt nach der Berechnung den nächsten empfohlenen Buchungsschritt.
+- Neue Spielstände erhalten getrennte Profile unter data/careers und überschreiben nicht unbemerkt den aktiven Karriereverlauf.
+
 ## Layout-Hotfix – 11.1.1
 - Der Analysebereich liegt wieder korrekt in der Hauptinhaltsspalte und nutzt die vollständige verfügbare Fensterbreite.
 - Überschriften, Schaltflächen, Ergebnisfelder und Lernbericht werden nicht mehr auf die Breite der Seitenleiste zusammengedrückt.

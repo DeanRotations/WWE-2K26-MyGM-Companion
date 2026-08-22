@@ -18,3 +18,10 @@ if(learned.Profile.MatchBonus("Cody Rhodes","Randy Orton","Tables")<=0)throw new
 var learnedPlan=PlannerEngine.Generate(roster,objectives,50_000,learned.Profile);
 if(!learnedPlan.Matches.Any(x=>x.A.Name.Contains("Cody")&&x.B.Name.Contains("Randy")||x.A.Name.Contains("Randy")&&x.B.Name.Contains("Cody")))throw new Exception("Starke gelernte Paarung fehlt.");
 Console.WriteLine(plan.Render());
+var ecw=CareerProfileService.CurrentEcwCalibration();
+var ecwPlan=PlannerEngine.Generate(ecw.RosterRows,[],1_042_425,null,ecw.MatchSlots,ecw.PromoSlots);
+if(ecwPlan.Matches.Count!=ecw.MatchSlots)throw new Exception("ECW-Spielstand hat nicht vier sichere Matches erhalten.");
+if(ecwPlan.Promos.Count!=ecw.PromoSlots)throw new Exception("ECW-Spielstand hat nicht drei Promos erhalten.");
+if(ecwPlan.Matches.SelectMany(x=>new[]{x.A.Name,x.B.Name}).Any(x=>x is "Roman Reigns" or "Finn Bálor" or "Omos"))throw new Exception("Verletzter Superstar wurde gebucht.");
+var fiveMatchPlan=PlannerEngine.Generate(roster,objectives,50_000,null,5,1);
+if(fiveMatchPlan.Matches.Count!=5||fiveMatchPlan.Promos.Count!=1)throw new Exception("Dynamische Showplätze wurden nicht beachtet.");

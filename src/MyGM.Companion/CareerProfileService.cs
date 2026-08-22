@@ -13,8 +13,8 @@ public static class CareerProfileService {
  public static CareerProfile CurrentEcwCalibration()=>new("ecw-s1","ECW · Saison 1","ECW",1,13,4,3,[
   "Brock Lesnar | M | Heel | Bruiser | 100 | 27 | LA Knight | 0",
   "Seth Rollins | M | Heel | Specialist | 93 | 17 | – | 0",
-  "Kevin Owens | M | Heel | Bruiser | 92 | 3 | Jimmy Uso | 0",
-  "Cody Rhodes | M | Face | Specialist | 78 | 19 | Kevin Owens | 0",
+  "Kevin Owens | M | Heel | Bruiser | 92 | 0 | Jimmy Uso | 0",
+  "Cody Rhodes | M | Face | Specialist | 78 | 0 | Kevin Owens | 0",
   "Jimmy Uso | M | Face | Cruiser | 73 | 30 | Kevin Owens | 0",
   "Drew McIntyre | M | Face | Bruiser | 68 | 48 | – | 0",
   "Randy Orton | M | Face | Fighter | 68 | 36 | Nick Aldis | 0",

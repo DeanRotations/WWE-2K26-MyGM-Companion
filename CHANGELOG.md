@@ -1,5 +1,15 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Verletzungsfix und moderne Kartenansichten – 11.4.0
+- Kevin Owens und Cody Rhodes werden im kalibrierten ECW-Spielstand korrekt als verletzt behandelt; bestehende ECW-Profile werden beim Start automatisch korrigiert.
+- Alle fünf sichtbaren Verletzungen sperren Matches und Promos: Kevin Owens, Cody Rhodes, Roman Reigns, Finn Bálor und Omos.
+- Wenn wegen Verletzungen nicht alle Promoplätze sicher belegt werden können, zeigt der Planer eine deutliche Warnkarte statt Doppelbuchung.
+- Show-Empfehlung verwendet moderne Einzelkarten für Auftakt, Midcards, Hauptevent, Promos und Warnungen statt einer Texttabelle.
+- Ziele und Versprechen werden nach hoher Priorität und Deadline sortiert als übersichtliche Karten dargestellt.
+- Technischer OCR-Text und Tabellenformat liegen nur noch eingeklappt unter Erkennungsdetails.
+- WWE-Fenster wird per direkter Fensteraufnahme erfasst, damit der davorliegende Companion nicht erneut als Spielinhalt gelesen wird.
+- Offensichtliche Companion-, Dashboard-, Update- und Wettertexte werden vom Zielparser verworfen.
+
 ## Vollständiges Card-Overlay und gezielter Roster-Scanner – 11.3.0
 - Overlay zeigt die vollständige Show-Empfehlung mit allen Matches, Matcharten, Managern, Promos, Sternebereichen, Kosten und Warnungen.
 - Größeres, rechts positioniertes Overlay bleibt click-through, nicht aktivierbar und per INSERT umschaltbar.

@@ -19,7 +19,7 @@ public sealed class WindowCaptureService {
  },token);
  public async Task<CaptureResult> CaptureAsync(WindowInfo info,string cacheDir,CancellationToken token) {
    return await Task.Run(() => { token.ThrowIfCancellationRequested(); NativeMethods.GetWindowRect(info.Handle,out var r); if(info.Width<100||info.Height<100) throw new InvalidOperationException("WWE-Fenster ist minimiert oder nicht erfassbar.");
-     using var bmp=new Bitmap(info.Width,info.Height,PixelFormat.Format24bppRgb); using(var g=Graphics.FromImage(bmp)) g.CopyFromScreen(r.Left,r.Top,0,0,bmp.Size,CopyPixelOperation.SourceCopy);
+     using var bmp=new Bitmap(info.Width,info.Height,PixelFormat.Format24bppRgb); using(var g=Graphics.FromImage(bmp)){var hdc=g.GetHdc();bool printed;try{printed=NativeMethods.PrintWindow(info.Handle,hdc,2);}finally{g.ReleaseHdc(hdc);}if(!printed)g.CopyFromScreen(r.Left,r.Top,0,0,bmp.Size,CopyPixelOperation.SourceCopy);}
      token.ThrowIfCancellationRequested(); using var ms=new MemoryStream(); bmp.Save(ms,ImageFormat.Png); var bytes=ms.ToArray(); var hash=Convert.ToHexString(SHA256.HashData(bytes))[..16]; Directory.CreateDirectory(cacheDir); var path=Path.Combine(cacheDir,$"capture-{DateTime.Now:yyyyMMdd-HHmmss}-{hash}.png"); File.WriteAllBytes(path,bytes);
      var image=new BitmapImage(); image.BeginInit(); image.CacheOption=BitmapCacheOption.OnLoad; image.StreamSource=new MemoryStream(bytes); image.EndInit(); image.Freeze(); return new CaptureResult(image,hash,path,info); },token).WaitAsync(TimeSpan.FromSeconds(8),token);
  }

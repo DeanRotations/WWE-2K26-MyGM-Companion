@@ -4,12 +4,15 @@ on:
   push:
     tags:
       - 'v*'
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   release:
+    if: startsWith(github.ref, 'refs/tags/') || contains(github.event.head_commit.message, 'Bootstrap release')
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,10 +27,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${{ github.ref_name }}" `
+          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v10.7.0" }
+          $setup = (Get-ChildItem "release/WWE-2K26-MyGM-Companion-*-Setup.exe" | Select-Object -First 1).FullName
+          $change = (Get-ChildItem "release/CHANGELOG-*.md" | Select-Object -First 1).FullName
+          gh release create "$releaseTag" `
             "release/MyGMCompanion-update.zip" `
             "release/MyGMCompanion-update.zip.sha256" `
-            "release/WWE-2K26-MyGM-Companion-*-Setup.exe" `
-            "release/CHANGELOG-*.md" `
-            --title "WWE 2K26 MyGM Companion ${{ github.ref_name }}" `
+            "$setup" `
+            "$change" `
+            --title "WWE 2K26 MyGM Companion $releaseTag" `
             --notes-file "CHANGELOG.md"
+

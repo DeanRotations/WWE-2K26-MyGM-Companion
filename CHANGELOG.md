@@ -1,5 +1,21 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Automatischer Showplaner – 11.0.0
+
+- Neuer Button `AUTO-PLAN ERSTELLEN` erzeugt aus bestätigtem Roster und offenen Zielen eine vollständige Card.
+- Bewertet Geschlecht, Face/Heel, Klassenkompatibilität, Popularität, Ausdauer, Manager und Rivalitätsstufe.
+- Bevorzugt Fighter/Bruiser, Cruiser/Giant und flexibel einsetzbare Spezialisten.
+- Schließt Superstars mit kritischer Ausdauer sowie ungültige Geschlechterpaarungen aus.
+- Plant bis zu vier konfliktfreie Matches, ohne einen Superstar doppelt einzusetzen.
+- Ordnet stärkstes Match als Main Event und zweistärkstes Match als Opener ein; schwächere Matches liegen in der Midcard.
+- Wählt abhängig von Ausdauer, Rivalität und Budget zwischen Normal, Tables, Extreme Rules, TLC und Hell in a Cell.
+- Offene Matchtyp-Ziele werden nach Möglichkeit genau einmal und budgetbewusst eingeplant.
+- Wählt bis zu drei ungebuchte Superstars für Eigenwerbung, Call-Out oder geforderten Rollenwechsel.
+- Zeigt erwartete Sterne-Spanne, geschätzte Matchkosten, Manager, Begründungen und Zielkonflikte.
+- Warnt sichtbar bei unerfüllbaren Siegen, Ruhekonflikten, Eingriffen, Rollenwechseln und unvollständigem Roster.
+- Aktualisiertes Rosterformat: `Name | Geschlecht | Rolle | Klasse | POP | Ausdauer | Manager | Rivalität`.
+- Automatisierter Smoke-Test prüft vier Matches, drei Promos, keine Doppelbuchung, Geschlechtertrennung und Matchtyp-Ziel.
+
 ## Ziele und Versprechen – 10.9.0
 
 - Neuer Bereich `ZIELE & VERSPRECHEN` für Commissioner-Ziele und Superstar-Versprechen.

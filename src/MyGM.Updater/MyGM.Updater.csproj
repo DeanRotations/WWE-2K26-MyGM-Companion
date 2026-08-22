@@ -1,1 +1,2 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>Updater</AssemblyName></PropertyGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><UseWindowsForms>true</UseWindowsForms><AssemblyName>Updater</AssemblyName><ApplicationIcon>..\MyGM.Companion\assets\mygm.ico</ApplicationIcon></PropertyGroup></Project>
+

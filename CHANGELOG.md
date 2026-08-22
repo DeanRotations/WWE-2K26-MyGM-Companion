@@ -1,5 +1,10 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Layout-Hotfix – 11.1.1
+- Der Analysebereich liegt wieder korrekt in der Hauptinhaltsspalte und nutzt die vollständige verfügbare Fensterbreite.
+- Überschriften, Schaltflächen, Ergebnisfelder und Lernbericht werden nicht mehr auf die Breite der Seitenleiste zusammengedrückt.
+- Keine Änderungen an gespeicherten Roster-, Planungs- oder Lerndaten.
+
 ## Ergebnisanalyse und lokales Lernen – 11.1.0
 
 - Neuer Bereich `ANALYSE & LERNEN` für Matchsterne, Matchtypen, Promowertungen, Endwertung und Notizen.

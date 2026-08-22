@@ -27,7 +27,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v11.3.0" }
+          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v11.4.0" }
           $setup = (Get-ChildItem "release/WWE-2K26-MyGM-Companion-*-Setup.exe" | Select-Object -First 1).FullName
           $change = (Get-ChildItem "release/CHANGELOG-*.md" | Select-Object -First 1).FullName
           $assets = @("release/MyGMCompanion-update.zip", "release/MyGMCompanion-update.zip.sha256", $setup, $change)

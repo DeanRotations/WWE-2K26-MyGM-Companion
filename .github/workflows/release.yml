@@ -39,4 +39,4 @@ jobs:
             gh release create "$releaseTag" $assets --title "WWE 2K26 MyGM Companion $releaseTag" --notes-file "CHANGELOG.md"
           }
 
-# Bootstrap V12.0.0
+# Bootstrap V12.0.0 via Contents API

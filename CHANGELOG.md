@@ -1,5 +1,15 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Vollständiges Card-Overlay und gezielter Roster-Scanner – 11.3.0
+- Overlay zeigt die vollständige Show-Empfehlung mit allen Matches, Matcharten, Managern, Promos, Sternebereichen, Kosten und Warnungen.
+- Größeres, rechts positioniertes Overlay bleibt click-through, nicht aktivierbar und per INSERT umschaltbar.
+- Neuer gezielter Roster-Scanner zerlegt die sichtbare WWE-Rosterübersicht in 15 einzelne Karten statt Vollbild-OCR zu verwenden.
+- Höchstens drei isolierte OCR-Prozesse laufen parallel; jeder Worker behält seinen harten Timeout und Abbruch.
+- Fortschritt wird als 1/15 bis 15/15 angezeigt, während die Hauptoberfläche responsiv bleibt.
+- Superstar-Kartenausschnitte und Scanbericht werden ausschließlich lokal im aktiven Karriereprofil gespeichert.
+- Erkannte Namen, Klasse, Popularität, Ausdauer und Face/Heel-Farbhinweis werden in Planerdaten umgewandelt.
+- Unsichere Karten werden sichtbar als Prüffälle gemeldet und nicht stillschweigend als sicher behandelt.
+
 ## Spielstandprofile und geführte Auto-Card – 11.2.0
 - Roster, Showstruktur und spätere Lerndaten werden einem aktiven MyGM-Spielstand zugeordnet.
 - Der aktuelle ECW-Spielstand aus Saison 1, Show 13 kann als kalibrierter Startscan mit 15 Superstars übernommen werden.

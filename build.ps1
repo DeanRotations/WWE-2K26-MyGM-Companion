@@ -35,7 +35,7 @@ $updateHash = (Get-FileHash (Join-Path $out 'MyGMCompanion-update.zip') -Algorit
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath (Join-Path $src 'MyGM.Setup\payload.zip') -Force
 dotnet publish (Join-Path $src 'MyGM.Setup\MyGM.Setup.csproj') -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o (Join-Path $PSScriptRoot 'setup-publish')
 if ($LASTEXITCODE -ne 0) { throw 'Setup build failed.' }
-Copy-Item (Join-Path $PSScriptRoot 'setup-publish\Setup.exe') (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.7.0-Setup.exe') -Force
-Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $out 'CHANGELOG-V10.7.0.md') -Force
-Get-FileHash (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.7.0-Setup.exe') -Algorithm SHA256 | Format-List
+Copy-Item (Join-Path $PSScriptRoot 'setup-publish\Setup.exe') (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.8.0-Setup.exe') -Force
+Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $out 'CHANGELOG-V10.8.0.md') -Force
+Get-FileHash (Join-Path $out 'WWE-2K26-MyGM-Companion-V10.8.0-Setup.exe') -Algorithm SHA256 | Format-List
 

@@ -1,5 +1,17 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Ziele und Versprechen – 10.9.0
+
+- Neuer Bereich `ZIELE & VERSPRECHEN` für Commissioner-Ziele und Superstar-Versprechen.
+- Zielseite wird ausschließlich auf Knopfdruck vom validierten WWE2K26-Fenster erfasst.
+- Separater OCR-Prozess mit denselben harten Timeouts und Abbruchregeln wie die Roster-Erfassung.
+- Regelbasierte Erkennung für Eingriffe, geforderte Siege, Matchtypen, Rollenwechsel, Ruhe, Promos und Buchungsforderungen.
+- Deutsche und englische Zieltexte sowie explizite, aktuelle und relative Wochen-Deadlines werden berücksichtigt.
+- Zweigeteilte Prüfoberfläche mit unverändertem OCR-Originaltext und strukturierten, editierbaren Zielzeilen.
+- Prioritäten `Hoch` und `Mittel` bereiten die spätere Abwägung zwischen Zielerfüllung und Showqualität vor.
+- Offene Ziele mit hoher Priorität werden automatisch in das Commissioner-Zielfeld der Show-Planung übernommen.
+- Bestätigte Ziele bleiben updatefest in `data/objectives.json` gespeichert.
+
 ## Roster-Grundlage – 10.8.0
 
 - Neuer Bereich `ROSTER & BRAND` für Brand, Woche und bestätigte Superstar-Daten.

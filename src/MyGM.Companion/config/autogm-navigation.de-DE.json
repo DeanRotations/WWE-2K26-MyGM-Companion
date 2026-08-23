@@ -1,0 +1,14 @@
+{
+  "Language": "de-DE",
+  "AspectRatio": "16:9",
+  "Steps": [
+    { "Name": "Roster öffnen", "Expected": "Home", "Target": "Roster", "Keys": ["PAGEDOWN","PAGEDOWN","PAGEDOWN"], "CaptureAs": "Roster" },
+    { "Name": "Zur Startseite", "Expected": "Roster", "Target": "Home", "Keys": ["PAGEUP","PAGEUP","PAGEUP"], "CaptureAs": "Home" },
+    { "Name": "Protokoll und Versprechen öffnen", "Expected": "Home", "Target": "Protocol", "Keys": ["F1"], "CaptureAs": "Protocol" },
+    { "Name": "Protokoll schließen", "Expected": "Protocol", "Target": "Home", "Keys": ["ESCAPE"], "CaptureAs": "Home" },
+    { "Name": "Show-Buchung erkennen", "Expected": "Home", "Target": "Booking", "Keys": ["PAGEDOWN"], "CaptureAs": "Booking" },
+    { "Name": "Zur Startseite zurück", "Expected": "Booking", "Target": "Home", "Keys": ["PAGEUP"], "CaptureAs": "Home" },
+    { "Name": "Karriere und Events erkennen", "Expected": "Home", "Target": "Career", "Keys": ["PAGEUP"], "CaptureAs": "Career" },
+    { "Name": "Automatik abschließen", "Expected": "Career", "Target": "Home", "Keys": ["PAGEDOWN"], "CaptureAs": "Home" }
+  ]
+}

@@ -3,9 +3,11 @@ $ErrorActionPreference = 'Stop'
 $src = Join-Path $PSScriptRoot 'src'
 $stage = Join-Path $PSScriptRoot 'stage'
 $updateStage = Join-Path $PSScriptRoot 'update-stage'
+$licenseStage = Join-Path $PSScriptRoot 'license-server-stage'
 $out = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path (Split-Path $PSScriptRoot -Parent) 'outputs' }
 if (Test-Path $stage) { Remove-Item -LiteralPath $stage -Recurse -Force }
 if (Test-Path $updateStage) { Remove-Item -LiteralPath $updateStage -Recurse -Force }
+if (Test-Path $licenseStage) { Remove-Item -LiteralPath $licenseStage -Recurse -Force }
 New-Item -ItemType Directory -Path $stage -Force | Out-Null
 New-Item -ItemType Directory -Path $updateStage -Force | Out-Null
 New-Item -ItemType Directory -Path $out -Force | Out-Null
@@ -35,6 +37,9 @@ $updateHash = (Get-FileHash (Join-Path $out 'MyGMCompanion-update.zip') -Algorit
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath (Join-Path $src 'MyGM.Setup\payload.zip') -Force
 dotnet publish (Join-Path $src 'MyGM.Setup\MyGM.Setup.csproj') -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o (Join-Path $PSScriptRoot 'setup-publish')
 if ($LASTEXITCODE -ne 0) { throw 'Setup build failed.' }
-Copy-Item (Join-Path $PSScriptRoot 'setup-publish\Setup.exe') (Join-Path $out 'WWE-2K26-MyGM-Companion-V12.0.0-Setup.exe') -Force
-Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $out 'CHANGELOG-V12.0.0.md') -Force
-Get-FileHash (Join-Path $out 'WWE-2K26-MyGM-Companion-V12.0.0-Setup.exe') -Algorithm SHA256 | Format-List
+dotnet publish (Join-Path $src 'MyGM.LicenseServer\MyGM.LicenseServer.csproj') -c Release -o $licenseStage
+if ($LASTEXITCODE -ne 0) { throw 'License server build failed.' }
+Compress-Archive -Path (Join-Path $licenseStage '*') -DestinationPath (Join-Path $out 'MyGM-LicenseServer-V13.0.0.zip') -Force
+Copy-Item (Join-Path $PSScriptRoot 'setup-publish\Setup.exe') (Join-Path $out 'WWE-2K26-MyGM-Companion-V13.0.0-Setup.exe') -Force
+Copy-Item (Join-Path $PSScriptRoot 'CHANGELOG.md') (Join-Path $out 'CHANGELOG-V13.0.0.md') -Force
+Get-FileHash (Join-Path $out 'WWE-2K26-MyGM-Companion-V13.0.0-Setup.exe') -Algorithm SHA256 | Format-List

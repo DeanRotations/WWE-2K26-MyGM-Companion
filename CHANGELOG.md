@@ -1,5 +1,19 @@
 # WWE 2K26 MyGM Companion V10.6
 
+## Vollautomatischer Auto-GM und Lizenzsystem – 13.0.0
+- Neuer Startbildschirm mit einem zentralen `AUTO-GM STARTEN`-Knopf.
+- Erkennt den echten WWE-2K26-Prozess und bedient MyGM erst nach ausdrücklichem Start durch den Benutzer.
+- Zustandsgeprüfte deutsche 16:9-Menünavigation: Vor und nach jedem Tastenschritt wird die erwartete Seite per gezieltem Screenshot bestätigt.
+- Globaler F12-Not-Aus, Fokuswächter, harte Timeouts und Sicherheitsstopp bei unbekannten oder unveränderten Menüs.
+- Automatische Zusammenführung von Woche, Brand, Budget, Showplätzen, Roster-Karten, Verletzungen, Commissioner-Zielen, Protokoll, Versprechen und Events.
+- Fertige Match- und Promo-Card wird sofort berechnet, lokal gespeichert und vollständig im click-through Overlay angezeigt.
+- PLE- und Eventregeln für Hell in a Cell, Night of Champions, WrestleMania, SummerSlam, Survivor Series, Royal Rumble, Money in the Bank und Extreme Rules.
+- Erfüllte und gescheiterte Versprechen werden vom offenen Planungsbedarf getrennt.
+- Neuer Login mit Benutzername, Passwort und Lizenzcode sowie Anzeige der verbleibenden Laufzeit.
+- Serverseitige Gerätebindung, Verlängerung, Sperrung, signierte Lizenzbelege und 72-Stunden-Offline-Toleranz.
+- Separates `MyGM-LicenseServer-V13.0.0.zip` für den späteren kommerziellen Betrieb.
+- Aus Sicherheitsgründen weiterhin keine DLL-Injection und kein Zugriff auf den Arbeitsspeicher des Spiels.
+
 ## Karriere-Zentrale – 12.0.0
 - Neue spielstandgebundene Karriere-Zentrale mit modernen Warn-, Kalender- und Superstar-Karten.
 - Automatischer Verletzungs- und Erholungskalender sowie Drei-Wochen-Ausdauerprognose.

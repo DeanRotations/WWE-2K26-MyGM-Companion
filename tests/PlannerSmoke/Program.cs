@@ -33,3 +33,10 @@ if(!career.Notices.Any(x=>x.Group=="VERLETZUNG"&&x.Title=="Kevin Owens"))throw n
 if(!career.Notices.Any(x=>x.Group=="WIEDERHOLUNG"))throw new Exception("Wiederholungswarnung fehlt.");
 if(!career.Notices.Any(x=>x.Group=="PROGNOSE-CHECK"))throw new Exception("Sternevergleich fehlt.");
 if(!career.Notices.Any(x=>x.Group=="BIS ZUM PLE"&&x.Title=="Woche 16"))throw new Exception("PLE-Plan fehlt.");
+if(MyGmScreenClassifier.Classify("STARTSEITE SHOW 13 BUDGET 1.000.000 $")!=MyGmScreen.Home)throw new Exception("Startseite nicht erkannt.");
+if(MyGmScreenClassifier.Classify("SHOW BUCHEN AUFTAKT MIDCARD HAUPTEVENT")!=MyGmScreen.Booking)throw new Exception("Buchungsseite nicht erkannt.");
+if(MyGmScreenClassifier.Classify("zufälliger unbekannter Text")!=MyGmScreen.Unknown)throw new Exception("Unbekannter Bildschirm muss die Automatik stoppen.");
+var ple=MyGmEventParser.Parse("NÄCHSTES EVENT HELL IN A CELL WOCHE 16",13);
+if(ple?.PreferredMatchType!="Hell in a Cell"||ple.Week!=16)throw new Exception("PLE-Kontext nicht erkannt.");
+var statuses=ObjectiveParser.Parse("Cody Rhodes: nächstes Match gewinnen – ERFÜLLT\nRandy Orton: nächstes Match gewinnen – GESCHEITERT",13);
+if(!statuses.Any(x=>x.Status=="Erfüllt")||!statuses.Any(x=>x.Status=="Gescheitert"))throw new Exception("Versprechenstatus nicht erkannt.");

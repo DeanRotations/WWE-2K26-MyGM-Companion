@@ -1,0 +1,6 @@
+{
+  "Mode": "development",
+  "Endpoint": "https://license.example.com",
+  "PublicKeyPem": "",
+  "OfflineGraceHours": 72
+}

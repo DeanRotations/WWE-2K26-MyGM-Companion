@@ -27,10 +27,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v12.0.0" }
+          $releaseTag = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}" } else { "v13.0.0" }
           $setup = (Get-ChildItem "release/WWE-2K26-MyGM-Companion-*-Setup.exe" | Select-Object -First 1).FullName
           $change = (Get-ChildItem "release/CHANGELOG-*.md" | Select-Object -First 1).FullName
-          $assets = @("release/MyGMCompanion-update.zip", "release/MyGMCompanion-update.zip.sha256", $setup, $change)
+          $assets = @("release/MyGMCompanion-update.zip", "release/MyGMCompanion-update.zip.sha256", "release/MyGM-LicenseServer-V13.0.0.zip", $setup, $change)
           gh release view "$releaseTag" *> $null
           if ($LASTEXITCODE -eq 0) {
             gh release upload "$releaseTag" $assets --clobber
@@ -38,5 +38,3 @@ jobs:
           } else {
             gh release create "$releaseTag" $assets --title "WWE 2K26 MyGM Companion $releaseTag" --notes-file "CHANGELOG.md"
           }
-
-# Bootstrap V12.0.0 via Contents API

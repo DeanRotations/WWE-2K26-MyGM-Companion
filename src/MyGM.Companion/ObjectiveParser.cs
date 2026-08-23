@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
 namespace MyGM.Companion;
 
-public sealed record ParsedObjective(string Kind,string Subject,string Requirement,int? DeadlineWeek,string Priority,string SourceText){
- public string ToEditorLine()=>string.Join(" | ",[Kind,Subject,Requirement,DeadlineWeek?.ToString()??"–",Priority,"Offen"]);
+public sealed record ParsedObjective(string Kind,string Subject,string Requirement,int? DeadlineWeek,string Priority,string Status,string SourceText){
+ public string ToEditorLine()=>string.Join(" | ",[Kind,Subject,Requirement,DeadlineWeek?.ToString()??"–",Priority,Status]);
 }
 
 public static partial class ObjectiveParser {
@@ -14,7 +14,7 @@ public static partial class ObjectiveParser {
   ("Ruhe",["ruhe","rest","nicht antreten","do not book"],"Hoch"),
   ("Promo",["promo","eigenwerbung","self promo","charity","call out"],"Mittel"),
   ("Buchen",["buche","book ","schedule","match bestreiten"],"Mittel")];
- public static IReadOnlyList<ParsedObjective> Parse(string text,int currentWeek){var lines=text.Replace("\r","").Split('\n',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries);var result=new List<ParsedObjective>();foreach(var line in lines){if(line.Length<5||line.Length>260)continue;var lower=line.ToLowerInvariant();if(lower.Contains("mygm companion")||lower.Contains("dashboard")||lower.Contains("updates")||lower.Contains("wetter")||lower.Contains("roster & brand"))continue;var rule=Rules.FirstOrDefault(r=>r.Words.Any(lower.Contains));if(rule.Words is null)continue;var deadline=ExtractDeadline(lower,currentWeek);var subject=ExtractSubject(line);result.Add(new(rule.Kind,subject,line,deadline,rule.Priority,line));}return result.DistinctBy(x=>x.SourceText,StringComparer.OrdinalIgnoreCase).OrderBy(x=>x.Priority=="Hoch"?0:1).ThenBy(x=>x.DeadlineWeek??int.MaxValue).ToList();}
+ public static IReadOnlyList<ParsedObjective> Parse(string text,int currentWeek){var lines=text.Replace("\r","").Split('\n',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries);var result=new List<ParsedObjective>();foreach(var line in lines){if(line.Length<5||line.Length>260)continue;var lower=line.ToLowerInvariant();if(lower.Contains("mygm companion")||lower.Contains("dashboard")||lower.Contains("updates")||lower.Contains("wetter")||lower.Contains("roster & brand"))continue;var rule=Rules.FirstOrDefault(r=>r.Words.Any(lower.Contains));if(rule.Words is null)continue;var deadline=ExtractDeadline(lower,currentWeek);var subject=ExtractSubject(line);var status=lower.Contains("gescheitert")||lower.Contains("failed")?"Gescheitert":lower.Contains("erfüllt")||lower.Contains("erfullt")||lower.Contains("completed")?"Erfüllt":"Offen";result.Add(new(rule.Kind,subject,line,deadline,rule.Priority,status,line));}return result.DistinctBy(x=>x.SourceText,StringComparer.OrdinalIgnoreCase).OrderBy(x=>x.Status=="Offen"?0:1).ThenBy(x=>x.Priority=="Hoch"?0:1).ThenBy(x=>x.DeadlineWeek??int.MaxValue).ToList();}
  static int? ExtractDeadline(string line,int week){var match=WeekRegex().Match(line);if(match.Success&&int.TryParse(match.Groups[1].Value,out var explicitWeek))return explicitWeek;if(line.Contains("diese woche")||line.Contains("this week"))return week;if(line.Contains("nächste woche")||line.Contains("next week"))return week+1;var inWeeks=InWeeksRegex().Match(line);return inWeeks.Success&&int.TryParse(inWeeks.Groups[1].Value,out var count)?week+count:null;}
  static string ExtractSubject(string line){var cleaned=Regex.Replace(line,@"\s+"," ").Trim();var before=cleaned.Split([':', '-', '–'],2)[0].Trim();return before.Length is >=3 and <=35?before:"Allgemein";}
  [GeneratedRegex(@"(?:woche|week)\s*(\d+)",RegexOptions.IgnoreCase)]private static partial Regex WeekRegex();
